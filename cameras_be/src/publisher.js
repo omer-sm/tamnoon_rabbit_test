@@ -7,7 +7,7 @@ export const connectRabbitMQ = async () => {
     const channel = await connection.createChannel();
 
     const exchange = "camera_alerts";
-    await channel.assertExchange(exchange, "alerts", { durable: false });
+    await channel.assertExchange(exchange, "topic", { durable: false });
 
     console.log("✅ Connected to RabbitMQ exchange:", exchange);
 
