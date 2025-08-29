@@ -8,11 +8,19 @@ defmodule CamerasFe.Application do
   @impl true
   def start(_type, _args) do
     children = [
-      {Tamnoon, [[
-        router: CamerasFe.Router,
-        initial_state: &CamerasFe.init!/0,
-        methods_modules: [CamerasFe.Methods.UiMethods, CamerasFe.Methods.CameraMethods]
-      ]]}
+      {Tamnoon,
+       [
+         [
+           router: CamerasFe.Router,
+           initial_state: &CamerasFe.init!/0,
+           methods_modules: [
+             CamerasFe.Methods.UiMethods,
+             CamerasFe.Methods.CameraMethods,
+             CamerasFe.Methods.AlertMethods
+           ]
+         ]
+       ]},
+      CamerasFe.Rabbit.Consumer
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

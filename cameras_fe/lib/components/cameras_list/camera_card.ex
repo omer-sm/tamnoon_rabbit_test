@@ -4,6 +4,11 @@ defmodule CamerasFe.Components.CamerasList.CameraCard do
   def heex do
     ~S"""
       <div class="card m-1" style="min-width: 18rem;">
+
+        <span hidden hidden=@not-camera_<%= @camera["id"] %>_has_alert class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-dark rounded-circle">
+          <span class="visually-hidden">New alerts</span>
+        </span>
+
         <div class="card-body">
           <h5 class="card-title"><%= @camera["name"] %></h5>
           <h6 class="card-subtitle mb-2 text-body-secondary"><%= @camera["category"] %> / <%= @camera["id"] %></h6>

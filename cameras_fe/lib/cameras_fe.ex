@@ -25,6 +25,7 @@ defmodule CamerasFe do
 
     Tamnoon.MethodManager.trigger_method(:switch_category, %{"key" => "All"}, 50)
     Tamnoon.MethodManager.trigger_method(:render_cameras, %{}, 100)
+    Tamnoon.MethodManager.trigger_method(:sub, %{"channel" => "all_alerts"}, 100)
 
     %{
       cameras: cameras,
