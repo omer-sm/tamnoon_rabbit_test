@@ -20,6 +20,30 @@
     <ul class="nav nav-tabs tmnn-category_tabs-innerHtml"></ul>
   </div>
 </nav>
+
+      <div id="cameras-container"></div>
+
+      <div class="modal fade" id="camera-feed-modal" tabindex="-1"
+ data-bs-backdrop="static" data-bs-keyboard="false">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Viewing '<span class=" tmnn-selected_camera_name-innerText" ></span>'</h5>
+        <button type="button" class="btn-close tmnnevent-onclick-close_feed_modal" data-bs-dismiss="modal" aria-label="Close" ></button>
+      </div>
+      <div class="modal-body">
+        <video class=" tmnn-camera_feed_url-src"  id="camera-feed-video"  width="320" height="240" autoplay loop>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary tmnnevent-onclick-close_feed_modal" data-bs-dismiss="modal" >Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
   </body>
 </html>

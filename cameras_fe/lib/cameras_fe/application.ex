@@ -11,7 +11,7 @@ defmodule CamerasFe.Application do
       {Tamnoon, [[
         router: CamerasFe.Router,
         initial_state: &CamerasFe.init!/0,
-        methods_modules: [CamerasFe.Methods.UiMethods]
+        methods_modules: [CamerasFe.Methods.UiMethods, CamerasFe.Methods.CameraMethods]
       ]]}
     ]
 

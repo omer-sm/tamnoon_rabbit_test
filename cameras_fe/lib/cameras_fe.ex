@@ -3,23 +3,28 @@ defmodule CamerasFe do
   alias CamerasFe.Api
 
   def init! do
-    cameras = case Api.Cameras.get_cameras() do
-      {:ok, body} -> body
-      {:error, data} -> raise("Failed to get cameras in initial state: #{inspect(data)}")
-    end
+    cameras =
+      case Api.Cameras.get_cameras() do
+        {:ok, body} -> body
+        {:error, data} -> raise("Failed to get cameras in initial state: #{inspect(data)}")
+      end
 
     categories = get_categories(cameras)
 
     category_tabs =
       categories
-      |> Enum.map_join(&(Tamnoon.Compiler.render_component(
-        CamerasFe.Components.CategoriesTab,
-        %{
-          category_name: &1,
-          is_selected: &1 == "All"
-        },
-        true
-      )))
+      |> Enum.map_join(
+        &Tamnoon.Compiler.render_component(
+          CamerasFe.Components.Ui.CategoriesTab,
+          %{
+            category_name: &1
+          },
+          true
+        )
+      )
+
+    Tamnoon.MethodManager.trigger_method(:switch_category, %{"key" => "All"}, 50)
+    Tamnoon.MethodManager.trigger_method(:render_cameras, %{}, 100)
 
     %{
       cameras: cameras,

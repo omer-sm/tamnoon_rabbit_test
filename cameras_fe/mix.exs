@@ -22,7 +22,7 @@ defmodule CamerasFe.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:tamnoon, "~> 1.0.0-rc.3"},
+      {:tamnoon, path: ~S"C:\Users\omerg\Desktop\Dev\VSCode Projects\tamnoon"},
       {:amqp, "~> 4.1"},
       {:req, "~> 0.5.15"}
       # {:dep_from_hexpm, "~> 0.3.0"},
