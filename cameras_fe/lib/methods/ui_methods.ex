@@ -64,6 +64,21 @@ defmodule CamerasFe.Methods.UiMethods do
   end
 
   defmethod :close_feed_modal do
-    {%{camera_feed_url: nil}}
+    Tamnoon.Methods.unsub(%{"channel" => "camera_alerts_#{state[:selected_camera_id]}"}, %{})
+
+    clear_notifs_action = DOM.Actions.ForEach.new!(%{
+      target: DOM.NodeCollection.new!(%{
+        selector_type: :query,
+        selector_value: ".notif-log"
+      }),
+      callback: DOM.Actions.RemoveNode.new!(%{
+        target: DOM.Node.new!(%{
+          selector_type: :iteration_placeholder,
+          selector_value: nil
+        })
+      })
+    })
+
+    {%{camera_feed_url: nil, selected_camera_id: nil}, [clear_notifs_action]}
   end
 end

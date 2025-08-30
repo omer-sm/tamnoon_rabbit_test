@@ -31,8 +31,17 @@
         <h5 class="modal-title">Viewing '<span class=" tmnn-selected_camera_name-innerText" ></span>'</h5>
         <button type="button" class="btn-close tmnnevent-onclick-close_feed_modal" data-bs-dismiss="modal" aria-label="Close" ></button>
       </div>
-      <div class="modal-body">
-        <video class=" tmnn-camera_feed_url-src"  id="camera-feed-video"  width="320" height="240" autoplay loop>
+      <div class="modal-body d-flex flex-column align-items-center">
+        <video class=" tmnn-camera_feed_url-src"  id="camera-feed-video"  width="320" height="240" autoplay loop></video>
+
+        <pre style="height: 15rem;" class="bg-secondary-subtle rounded border border-1 border-secondary my-2 w-100">
+          <code class="px-5">
+            <ul id="camera-notifs-text" class="d-flex flex-column">
+              <li>Listening for alerts from '<span class=" tmnn-selected_camera_name-innerText" ></span>'...</li>
+            </ul>
+          </code>
+        </pre>
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary tmnnevent-onclick-close_feed_modal" data-bs-dismiss="modal" >Close</button>

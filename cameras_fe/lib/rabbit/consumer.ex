@@ -37,7 +37,18 @@ defmodule CamerasFe.Rabbit.Consumer do
         "channel" => "all_alerts",
         "action" => %{
           "method" => "handle_new_alert",
-          "alert_data" => Map.take(payload, ["cameraId", "category"])
+          "alert_data" => Map.take(payload, ["cameraId"])
+        }
+      },
+      %{}
+    )
+
+    Tamnoon.Methods.pub(
+      %{
+        "channel" => "camera_alerts_#{payload["cameraId"]}",
+        "action" => %{
+          "method" => "handle_new_alert",
+          "alert_data" => Map.take(payload, ["cameraId", "message", "timestamp"])
         }
       },
       %{}
